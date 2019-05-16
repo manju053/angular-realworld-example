@@ -19,10 +19,10 @@ export class ProfileService {
   }
 
   follow(username: string): Observable<Profile> {
-    return this.apiService.post('/profiles/' + username + 'follow');
+    return this.apiService.post('/profiles/' + username + '/follow');
   }
 
   unfollow(username: string): Observable<Profile> {
-    return this.apiService.delete('/profiles/' + username + 'follow')
+    return this.apiService.delete('/profiles/' + username + '/follow')
   }
 }

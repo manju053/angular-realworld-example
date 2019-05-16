@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Route, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared';
+import { HomeAuthResolverService } from './home-auth-resolver.service';
 
 
 /*const homeRouting: ModuleWithProviders = RouterModule.forChild([
@@ -15,7 +16,10 @@ import { SharedModule } from '../shared';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    resolve: {
+      isAuthenticated: HomeAuthResolverService
+    }
   }
 ]
 @NgModule({
@@ -26,6 +30,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
 
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [HomeAuthResolverService]
 })
 export class HomeModule { }

@@ -4,7 +4,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HomeModule} from './home/home.module';
-import { SharedModule, ApiService, UserService, User, JwtService, ProfileService, ArticleService, CommentsService} from './shared';
+import { SharedModule, ApiService, UserService, User, JwtService, ProfileService, ArticleService, CommentsService, TagsService} from './shared';
 import { HeaderComponent} from './shared/layout/header.component';
 import { FooterComponent } from './shared/layout/footer.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -43,7 +43,8 @@ const routes: Routes = [];
     ArticleModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ApiService, UserService, JwtService, AuthGuardService, ProfileService, ArticleService, CommentsService],
+  providers: [ApiService, UserService, JwtService, AuthGuardService, ProfileService, ArticleService, CommentsService,
+  TagsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

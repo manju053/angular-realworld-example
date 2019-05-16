@@ -43,7 +43,7 @@ export class ArticleListComponent implements OnInit {
       .subscribe(
         data => {
 
-          //console.log(data);
+          console.log(this.query);
           this.loading = false;
           this.results = data.articles;
           console.log(data.articles);
