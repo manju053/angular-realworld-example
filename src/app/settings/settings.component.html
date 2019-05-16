@@ -1,0 +1,59 @@
+<div class="settings-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 col-xs-12 offset-md-3">
+        <h1 class="text-xs-center">Your Settings</h1>
+
+        <app-list-errors [errors]="errors"></app-list-errors>
+        
+        <form [formGroup]="settingsForm" (ngSubmint)="submitForm()">
+          <fieldset [disabled]="isSubmitting">
+
+            <fieldset class="form-group">
+              <input type="text" class="form-control"
+              placeholder="URL of profile picture"
+              formControlName="image">
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control"
+              type="text"
+              placeholder="Username"
+              formControlName="username">
+            </fieldset>
+
+            <fieldset class="form-group">
+                <textarea class="form-control form-control-lg"
+                  rows="8"
+                  placeholder="Short bio about you"
+                  formControlName="bio">
+                </textarea>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input type="email" class="form-control"
+              placeholder="Email"
+              formControlName="email">
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input type="password" class="form-control"
+              placeholder="Password"
+              formControlName="password">
+            </fieldset>
+
+            <button class="btn btn-primary btn-lg pull-xs-right" type="submit">
+              Update settings
+            </button>
+          </fieldset>
+        </form>
+
+        <hr />
+
+        <button class="btn btn-outline-danger" (click)="logout()">
+          Or click here to log out
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

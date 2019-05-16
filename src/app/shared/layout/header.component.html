@@ -1,0 +1,56 @@
+<nav class="navbar navbar-light">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">Conduit</a>
+
+    <!-- show this for logged out users-->
+    <ul class="nav navbar-nav pull-xs-right" *showAuthed="false">
+        <li class="nav-item">
+            <a  routerLink='/' class="nav-link" routerLinkAcive="active">Home</a>
+          </li>
+
+      <li class="nav-item">
+        <a  routerLink='/login' class="nav-link" routerLinkAcive="active">Sign In</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/register' routerLinkActive="active">Sign Up</a>
+      </li>
+    </ul>
+
+    <!-- logged out users display-->
+
+    <!-- show this for logged in users-->
+    <ul class="nav navbar-nav pull-xs-right" *showAuthed="true">
+      <li class="nav-item">
+        <a routerLink='/' routerLinkActive="active" class="nav-link">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a  class="nav-link"
+          routerLink="/editor"
+          routerLinkActive="active">
+          <i class="ion-compose"></i>&nbsp; New Article
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a  class="nav-link"
+        routerLink='/settings'
+        routerLinkActive="active">
+          <i class="ion-search"></i>&nbsp; Settings
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"
+        [routerLink]="['/profile', currentUser.username]"
+        routerLinkActive="active">
+
+        <img [src] ="currentUser.image" *ngIf="currentUser.image"  class="user-pic">
+          {{currentUser.username}}
+        </a>
+      </li>
+    </ul>
+    <!-- Logged in users display-->
+  </div>
+</nav>
